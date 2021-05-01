@@ -1,9 +1,9 @@
 import './User.css';
 
-const User = () => {
+const User = (props) => {
   return (
-    <div>
-      
+    <div className="user">
+      <p>{props.name} ({props.age} years old)</p>
     </div>
   )
 }

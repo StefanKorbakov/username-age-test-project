@@ -1,11 +1,15 @@
 import './UsersList.css';
 import User from './User'
 
-const Users = () => {
+const Users = (props) => {
+  if (props.listOfUsers.length === 0) {
+    return (null);
+  }
+  
   return (
-    <div>
+    <ul className="userlist">
       <User />
-    </div>
+    </ul>
   )
 }
 
