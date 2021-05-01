@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './UsernameForm.css'
 
-const UsernameForm = () => {
+const UsernameForm = (props) => {
   const [enteredUser, setEnteredUser] = useState('');
   const [enteredAge, setEnteredAge] = useState('');
 
@@ -15,6 +15,15 @@ const UsernameForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+
+    const userData = {
+      userName: enteredUser,
+      userAge: enteredAge
+    };
+
+    props.onSaveUserData(userData);
+    setEnteredUser('');
+    setEnteredAge('');
   };
 
   return (

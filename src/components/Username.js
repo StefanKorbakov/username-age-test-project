@@ -1,10 +1,18 @@
 import UsernameForm from './UsernameForm';
 import './Username.css';
 
-const Username = () => {
+const Username = (props) => {
+  const saveUserDataHandler = (enteredUserData) => {
+    const userData = {
+      ...enteredUserData,
+      id: Math.random().toString()
+    };
+    props.onAddUser(userData);
+  }
+
   return (
     <div className="username_section">
-        <UsernameForm />
+        <UsernameForm onSaveUserData={saveUserDataHandler}/>
     </div>
   );
 };
