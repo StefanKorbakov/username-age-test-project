@@ -1,15 +1,31 @@
+import React, { useState } from 'react';
 import './UsernameForm.css'
 
 const UsernameForm = () => {
+  const [enteredUser, setEnteredUser] = useState('');
+  const [enteredAge, setEnteredAge] = useState('');
+
+  const userChangeHandler = (event) => {
+    setEnteredUser(event.target.value);
+  };
+
+  const ageChangeHandler = (event) => {
+    setEnteredAge(event.target.value);
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="username_form">
         <label>Username</label>
-        <input></input>
+        <input type="text" value={enteredUser} onChange={userChangeHandler} ></input>
       </div>
       <div className="username_form">
         <label>Age (Years)</label>
-        <input></input>
+        <input type="number" min="1" step="1" value={enteredAge} onChange={ageChangeHandler} ></input>
       </div>
       <div className="username_form">
         <button type="submit">Add User</button>
